@@ -375,7 +375,7 @@ git clone https://github.com/heitorgandolfi/Levva-Coins-Api.git
 
 3. Configure o banco de dados:
 
-Verifique se você tem o SQL Server instalado.
+Verifique se você tem o SQLite Server instalado.
 No arquivo appsettings.json, verifique e atualize a string de conexão com o banco de dados.
 
 4. Execute as migrações do banco de dados:
