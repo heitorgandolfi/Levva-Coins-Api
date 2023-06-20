@@ -73,9 +73,6 @@ namespace LevvaCoins.Logic.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             var loginResponse = new LoginResponseDto { Id = usuario.Id, Email = usuario.Email, Name = usuario.Name };
             loginResponse.Token = $"Bearer {tokenHandler.WriteToken(token)}";
-            //loginDto.Token = tokenHandler.WriteToken(token);
-            //loginDto.Nome = usuario.Nome;
-            //loginDto.Email = usuario.Email;
 
             return loginResponse;
         }
