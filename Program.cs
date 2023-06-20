@@ -26,14 +26,6 @@ public class Program
 
         builder.Services.AddControllers();
 
-        ////builder.Services.AddMvc(config =>
-        //{
-        //    var policy = new AuthorizationPolicyBuilder()
-        //                     .RequireAuthenticatedUser()
-        //                     .Build();
-        //    config.Filters.Add(new AuthorizeFilter(policy));
-        //});
-
         builder.Services.AddAuthentication(x =>
         {
             x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -52,8 +44,6 @@ public class Program
             };
         });
 
-        
-
         builder.Services.AddDbContext<Context>(options => options.UseSqlite(builder.Configuration.GetConnectionString("Default"), b => b.MigrationsAssembly("LevvaCoins")));
         builder.Services.AddAutoMapper(typeof(DefaultMapper));
 
@@ -71,7 +61,7 @@ public class Program
             opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
             {
                 Description = "JWT Authorization Header - utilizado com Bearer Authentication.\r\n\r\n" +
-                "Digite 'Bearer' [espaÁo] e ent„o seu token no campo abaixo.\r\n\r\n" +
+                "Digite 'Bearer' [espa√ßo] e ent√£o seu token no campo abaixo.\r\n\r\n" +
                 "Exemplo (informar sem as aspas): 'Bearer 12345abcdef'",
 
                 Name = "Authorization",
@@ -118,15 +108,12 @@ public class Program
 
         app.UseAuthorization();
 
-
         app.MapControllers();
 
-  
         var cultureInfo = new CultureInfo("pt-BR");
         CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
         CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
         app.Run();
-
     }
 }
